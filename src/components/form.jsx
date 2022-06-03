@@ -59,6 +59,7 @@ const Form = () => {
         noValidate
         method="POST"
         data-netlify="true"
+        netlify-honeypot="bot-field"
         name="contact-form"
       >
         <input type="hidden" name="form-name" value="contact-form" />
