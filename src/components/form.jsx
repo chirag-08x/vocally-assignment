@@ -42,8 +42,6 @@ const Form = () => {
       openModal("Please provide a valid email address.");
       return;
     }
-
-    return "Success";
   };
 
   const handleChange = (e) => {
