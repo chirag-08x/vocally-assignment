@@ -10,15 +10,7 @@ const Form = () => {
 
   const { openModal } = useGlobalContext();
 
-  function encode(data) {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
-  }
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const nameValue = formValuevalue.name;
@@ -29,15 +21,15 @@ const Form = () => {
       return;
     }
 
-    if (emailValue === "") {
-      openModal("Please provide a value for email field.");
-      return;
-    }
-
     const validateName = /^[a-zA-Z" "]+$/.test(nameValue);
 
     if (!validateName) {
       openModal("Only alphabets are allowed in the name field.");
+      return;
+    }
+
+    if (emailValue === "") {
+      openModal("Please provide a value for email field.");
       return;
     }
 
@@ -51,19 +43,26 @@ const Form = () => {
       return;
     }
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        // "form-name": e.target.getAttribute("name"),
-        // ...name,
-        name: nameValue,
-        email: emailValue,
-      }),
-    })
-      .then(() => navigate("/thank-you/"))
-      // .then(() => console.log("/thank-you/"))
-      .catch((error) => alert(error));
+    const response = await fetch(
+      "https://vocally-project-d5154-default-rtdb.firebaseio.com/userDataRecords.json",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: nameValue,
+          email: emailValue,
+        }),
+      }
+    );
+
+    if (response) {
+      openModal("form successfully submitted");
+      setFormValue({ name: "", email: "" });
+    } else {
+      alert("Please check the form values again!!!");
+    }
   };
 
   const handleChange = (e) => {
@@ -75,15 +74,7 @@ const Form = () => {
 
   return (
     <Wrapper>
-      <form
-        className="form"
-        onSubmit={handleSubmit}
-        noValidate
-        method="POST"
-        data-netlify="true"
-        name="contact-form"
-      >
-        <input type="hidden" name="form-name" value="contact-form" />
+      <form className="form" method="POST" onSubmit={handleSubmit} noValidate>
         <div>
           <input
             type="text"
