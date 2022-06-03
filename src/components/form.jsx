@@ -43,7 +43,7 @@ const Form = () => {
       return;
     }
 
-    setFormValue({ name: "", email: "" });
+    // setFormValue({ name: "", email: "" });
   };
 
   const handleChange = (e) => {
