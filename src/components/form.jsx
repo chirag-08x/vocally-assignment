@@ -59,7 +59,9 @@ const Form = () => {
         noValidate
         method="POST"
         data-netlify="true"
+        name="contact-form"
       >
+        <input type="hidden" name="form-name" value="contact-form" />
         <div>
           <input
             type="text"
