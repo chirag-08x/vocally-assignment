@@ -42,6 +42,8 @@ const Form = () => {
       openModal("Please provide a valid email address.");
       return;
     }
+
+    setFormValue({ name: "", email: "" });
   };
 
   const handleChange = (e) => {
