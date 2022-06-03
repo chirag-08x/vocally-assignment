@@ -11,19 +11,19 @@ import styled from "styled-components";
 const SocialIcons = () => {
   return (
     <Wrapper className="social-icons">
-      <a href="https:www.facebook.com" target="_blank">
+      <a href="https:www.facebook.com" target="_blank" rel="noreferrer">
         {<FaFacebookF />}
       </a>
-      <a href="https:www.twitter.com" target="_blank">
+      <a href="https:www.twitter.com" target="_blank" rel="noreferrer">
         {<FaTwitter />}
       </a>
-      <a href="https:www.yotube.com" target="_blank">
+      <a href="https:www.yotube.com" target="_blank" rel="noreferrer">
         {<FaYoutube />}
       </a>
-      <a href="https:www.linkedin.com" target="_blank">
+      <a href="https:www.linkedin.com" target="_blank" rel="noreferrer">
         {<FaLinkedin />}
       </a>
-      <a href="https:www.instagram.com" target="_blank">
+      <a href="https:www.instagram.com" target="_blank" rel="noreferrer">
         {<FaInstagram />}
       </a>
     </Wrapper>
