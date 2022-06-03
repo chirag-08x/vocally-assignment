@@ -43,7 +43,7 @@ const Form = () => {
       return;
     }
 
-    // setFormValue({ name: "", email: "" });
+    return "Success";
   };
 
   const handleChange = (e) => {
