@@ -4,7 +4,7 @@ import infoLofo from "../assets/info.png";
 
 const Info = () => {
   return (
-    <Wrapper>
+    <Wrapper id="section2">
       <div>
         <article className="content">
           <h1 className="title">focused on time saving</h1>

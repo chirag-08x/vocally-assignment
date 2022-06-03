@@ -5,7 +5,7 @@ import mainImg from "../assets/main.png";
 import SocialIcons from "./socialIcons";
 import { useGlobalContext } from "../context/context";
 import Modal from "./modal";
-import { AiOutlineDownCircle } from "react-icons/ai";
+import { AiOutlineUpCircle } from "react-icons/ai";
 
 const Main = () => {
   const {
@@ -35,9 +35,9 @@ const Main = () => {
       <article className="footer-container">
         <div></div>
         <div className="scroll-icon">
-          <button>
-            <AiOutlineDownCircle />
-          </button>
+          <a href="#section2">
+            <AiOutlineUpCircle />
+          </a>
         </div>
         <SocialIcons />
       </article>
@@ -131,7 +131,12 @@ const Wrapper = styled.section`
         display: initial;
         justify-self: center;
 
-        button {
+        &:hover {
+          transform: rotate(180deg);
+          transition: var(--main-transition);
+        }
+
+        a {
           border: none;
           font-size: 2rem;
         }
