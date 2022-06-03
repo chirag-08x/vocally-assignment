@@ -10,6 +10,14 @@ const Form = () => {
 
   const { openModal } = useGlobalContext();
 
+  function encode(data) {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -42,6 +50,18 @@ const Form = () => {
       openModal("Please provide a valid email address.");
       return;
     }
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": e.target.getAttribute("name"),
+        ...name,
+      }),
+    })
+      .then(() => navigate("/thank-you/"))
+      // .then(() => console.log("/thank-you/"))
+      .catch((error) => alert(error));
   };
 
   const handleChange = (e) => {
@@ -59,7 +79,6 @@ const Form = () => {
         noValidate
         method="POST"
         data-netlify="true"
-        netlify-honeypot="bot-field"
         name="contact-form"
       >
         <input type="hidden" name="form-name" value="contact-form" />
