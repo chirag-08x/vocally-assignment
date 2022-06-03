@@ -55,8 +55,10 @@ const Form = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": e.target.getAttribute("name"),
-        ...name,
+        // "form-name": e.target.getAttribute("name"),
+        // ...name,
+        name: nameValue,
+        email: emailValue,
       }),
     })
       .then(() => navigate("/thank-you/"))
