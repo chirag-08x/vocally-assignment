@@ -49,7 +49,6 @@ export default Footer;
 
 const Wrapper = styled.footer`
   background-color: var(--clr-primary-2);
-
   padding: 1rem 0;
 
   hr {
@@ -67,7 +66,7 @@ const Wrapper = styled.footer`
 
     div {
       color: var(--clr-primary-3);
-      font-size: 0.875rem;
+      font-size: 0.7rem;
     }
 
     .img-container {
@@ -149,6 +148,14 @@ const Wrapper = styled.footer`
       .social-icons {
         justify-content: flex-end;
         margin: 0;
+      }
+    }
+  }
+
+  @media (min-width: 425px) {
+    .container {
+      div {
+        font-size: 0.875rem;
       }
     }
   }

@@ -58,12 +58,14 @@ const Wrapper = styled.section`
       }
 
       button {
-        width: 21rem;
+        width: 100%;
+        max-width: 21rem;
       }
     }
 
     figure {
-      width: 25rem;
+      width: 100%;
+      max-width: 25rem;
       margin: 0 auto;
     }
   }

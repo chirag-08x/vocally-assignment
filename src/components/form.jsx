@@ -107,7 +107,8 @@ const Wrapper = styled.div`
     div {
       margin-bottom: 1rem;
       input {
-        width: 21rem;
+        width: 100%;
+        max-width: 21rem;
         border-radius: 2rem;
         border: 1px solid var(--clr-primary-4);
         padding: 0.8rem 1rem;
@@ -119,7 +120,8 @@ const Wrapper = styled.div`
     button {
       border: 1px solid var(--clr-primary-4);
       margin-top: 0.5rem;
-      width: 21rem;
+      width: 100%;
+      max-width: 21rem;
       color: var(--clr-primary-4);
 
       &:hover {
